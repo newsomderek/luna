@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Auth from '../Auth/Auth';
 
 import { Button } from 'rmwc/Button';
 
