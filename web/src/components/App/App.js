@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 
-import { Button } from 'rmwc/Button';
+import history from '../Auth/history';
 
 class App extends Component {
-    
-    
-    handleLogin = () => {
-        this.props.auth.login();
-    }
-    
-    handleLogout = () => {
-        this.props.auth.logout();
-    }
-    
-    render() {
-        const { isAuthenticated } = this.props.auth;
+
+    constructor(props) {
+        super(props);
         
+        // redirect to login if not logged in and not on the login page
+        if(!this.props.auth.isAuthenticated() && 
+                this.props.location.pathname !== '/login' && 
+                this.props.location.pathname !== '/callback'
+        ) {
+            history.replace('/login');   
+        }
+    }
+    
+
+    render() {
         return (
             <div className="App">
             {
-                !isAuthenticated() ? (
-                    <Button outlined onClick={ this.handleLogin }>Login</Button>
-                ) : (
-                    <Button outlined onClick={ this.handleLogout }>Logout</Button>
+                this.props.auth.isAuthenticated() && (
+                    <div>APP</div>
                 )
             }
             </div>

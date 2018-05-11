@@ -30,7 +30,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/home');
       } else if (err) {
-        history.replace('/home');
+        history.replace('/login');
         console.log(err);
       }
     });
@@ -52,7 +52,7 @@ export default class Auth {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/login');
   }
 
   isAuthenticated() {
