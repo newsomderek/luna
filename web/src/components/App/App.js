@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import history from '../Auth/history';
 
+import TopNavigation from '../TopNavigation/TopNavigation';
+
 class App extends Component {
 
     constructor(props) {
@@ -24,7 +26,7 @@ class App extends Component {
             <div className="App">
             {
                 this.props.auth.isAuthenticated() && (
-                    <div>APP</div>
+                    <TopNavigation auth={ this.props.auth } />
                 )
             }
             </div>
