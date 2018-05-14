@@ -13,6 +13,8 @@ class App extends Component {
                 this.props.location.pathname !== '/callback'
         ) {
             history.replace('/login');   
+        } else if(this.props.auth.isAuthenticated() && this.props.location.pathname === '/login') {
+            history.replace('/home');
         }
     }
     
