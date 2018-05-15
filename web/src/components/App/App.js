@@ -23,7 +23,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" style={{ paddingBottom: 100 }}>
             {
                 this.props.auth.isAuthenticated() && (
                     <TopNavigation auth={ this.props.auth } />
